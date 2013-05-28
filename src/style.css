@@ -1,0 +1,16 @@
+.Post {
+    background: black;
+}
+
+.PostUser {
+    background: red;
+    float: left;
+}
+
+.PostContent {
+    background: green;
+}
+
+.PostTitle {
+    background: yellow;
+}
