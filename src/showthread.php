@@ -4,6 +4,7 @@
     </head>
     <body>
 <?php
+session_start();
 include 'connection.php';
 $id_get = $_GET["t"];
 
@@ -27,25 +28,18 @@ while ($row = mysql_fetch_object($result)) {
 ?>
         <form action="insert.php" method="post">
 
-            <input name="User" list="userIds">
             <?php
-            echo "<datalist id='userIds'>";
-                    $result = mysql_query("SELECT ID FROM Users");
-                    while ($line = mysql_fetch_object($result))  {
-                        echo "<option value='$line->ID'>";
-                    }
-            echo "</datalist>";
-            echo mysql_error();
+            if (isset($_SESSION['username'])) {
+                echo "<br>
+                    <input name=\"Title\" type=\"text\" maxlength=\"40\" placeholder=\"Der Titel\">
+                    <br>
+                    <textarea name=\"Content\" maxlength=\"500\" placeholder=\"Der Content\"></textarea>
+                    <input type=\"hidden\" name=\"mode\" value=\"post\">
+                    <input type=\"hidden\" name=\"threadid\" value=\"$id_get?>\">
+                    <br>
+                    <input name=\"Submit\" type=\"submit\" value=\"Abschicken\">";
+            }
             ?>
-            <br>
-            <input name="Title" type="text" maxlength="40" placeholder="Der Titel">
-            <br>
-            <textarea name="Content" maxlength="500" placeholder="Der Content"></textarea>
-            <input type="hidden" name="mode" value="post">
-            <input type="hidden" name="threadid" value="<?php echo $id_get?>">
-            <br>
-            <input name="Submit" type="submit" value="Abschicken">
-
         </form>
     </body>
 

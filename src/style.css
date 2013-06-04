@@ -1,14 +1,15 @@
 .Post {
     background: black;
+    position: relative;
+}
+
+.PostContent {
+    background: green;
 }
 
 .PostUser {
     background: red;
     float: left;
-}
-
-.PostContent {
-    background: green;
 }
 
 .PostTitle {
