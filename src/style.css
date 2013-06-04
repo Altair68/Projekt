@@ -1,17 +1,89 @@
+body {
+    background: #CECECE
+}
+
 .Post {
-    background: black;
-    position: relative;
+    overflow: hidden;
+    background: grey;
+    margin: 0 0 15 0;
+    border: solid 1px black;
 }
 
-.PostContent {
-    background: green;
-}
+.wrapTitleDate {
+    background: #ff7a00; /* Old browsers */
+    background: -moz-linear-gradient(left,  #ff7a00 50%, #808080 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(50%,#ff7a00), color-stop(100%,#808080)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #ff7a00 50%,#808080 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #ff7a00 50%,#808080 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #ff7a00 50%,#808080 100%); /* IE10+ */
+    background: linear-gradient(to right,  #ff7a00 50%,#808080 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7a00', endColorstr='#808080',GradientType=1 ); /* IE6-9 */
+    padding: 2 5;
+    overflow: hidden;
 
-.PostUser {
-    background: red;
-    float: left;
 }
 
 .PostTitle {
-    background: yellow;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
 }
+
+.PostDate {
+    text-align: right;
+}
+
+.wrapPostUserContent {
+    overflow: hidden;
+}
+.PostUser {
+    background: lightgray;
+    float: left;
+    padding: 0 10;
+    margin-right: 5;
+    border-right : solid 1px black;
+    width: 75px;
+    height: 200px;
+background: #ff7a00; /* Old browsers */
+background: -moz-linear-gradient(top,  #ff7a00 1%, #808080 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ff7a00), color-stop(100%,#808080)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ff7a00 1%,#808080 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ff7a00 1%,#808080 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ff7a00 1%,#808080 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ff7a00 1%,#808080 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7a00', endColorstr='#808080',GradientType=0 ); /* IE6-9 */
+    }
+
+
+
+.PostContent {
+    word-wrap: break-word;
+    padding: 5 5;
+    border-top: solid 1px black;
+    color: lightgray;
+}
+
+.ThreadName {
+    float: left;
+}
+
+.ThreadDate {
+    text-align: right;
+}
+
+.ThreadDescr {
+    clear: both;
+}
+
+a:link {
+    color: #000000;
+}      /* unvisited link */
+a:visited {
+    color: #878787;
+}  /* visited link */
+a:hover {
+    color: #ffc704;
+}  /* mouse over link */
+a:active {
+    color: #ffc704;
+}  /* selected link */
