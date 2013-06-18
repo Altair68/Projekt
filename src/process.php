@@ -39,6 +39,7 @@
 <html>
 <head>
     <meta http-equiv="refresh" content="1; URL='javascript:history.back()'">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <noscript>Bitte manuell auf zurück drücken, wenn du schon alles selbst machen willst (NoScript)</noscript>

@@ -19,7 +19,7 @@
             include 'footer.html';
         ?>
 
-        <form action="insert.php" method="post">
+        <form action="process.php" method="post">
 
             <?php
             if (isset($_SESSION['username'])) {
