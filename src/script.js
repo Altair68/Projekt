@@ -2,16 +2,29 @@
 $(document).ready(function() {
     setBackground();
     $('#demo').hide();
-    //$.cookie("color1", "content");
-    //alert($.cookie("color1"));
-    //setColors($.cookie("color1"));
+    setColors($.cookie("color1"));
     $('#picker').farbtastic(function callback(color) {
-        //$.cookie("color1", color, { path: '/colorSchemaForum'});
+        $.cookie("color1", color);
+        $('#color').val(color);
         setColors(color);
     });
 });
 
 function setColors(color) {
+    if (colorToNumber(color) < 250) {
+        $('.greyOrangeGreyFlowBackground').css("color", "white");
+        $('.topBottFlowBackground').css("color", "white");
+        $('.leftRightFlowBackground').css("color", "white");
+        $('a:link').css("color", "white");
+        $('#color').css("color", "white");
+    } else {
+        $('.greyOrangeGreyFlowBackground').css("color", "black");
+        $('.topBottFlowBackground').css("color", "black");
+        $('.leftRightFlowBackground').css("color", "black");
+        $('a:link').css("color", "black");
+        $('#color').css("color", "black");
+    }
+    $('#color').css("background", color);
     $('.greyOrangeGreyFlowBackground').css("background", "linear-gradient(to right, #808080 0%,"+color+" 51%,#808080 100%)");
     $('.topBottFlowBackground').css("background", "linear-gradient(to bottom,  "+color+" 1%,#808080 100%)");
     $('.leftRightFlowBackground').css("background", "linear-gradient(to right,  "+color+" 50%,#808080 100%)");
@@ -22,4 +35,12 @@ function setBackground() {
     $(".wrapTitleDate").addClass("leftRightFlowBackground");
     $(".postUser").addClass("topBottFlowBackground");
     $(".error").addClass("greyOrangeGreyFlowBackground");
+    $(".wrapThreadTitle").addClass("leftRightFlowBackground");
+}
+
+function colorToNumber(color) {
+    r = color.substr(1, 2);
+    g = color.substr(3, 2);
+    b = color.substr(5, 6);
+    return parseInt(r, 16) + parseInt(g, 16) + parseInt(b, 16);
 }
