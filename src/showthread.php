@@ -14,6 +14,8 @@ $sqlt = "SELECT * FROM Threads WHERE ID = $id_get";
 $result = mysql_query($sqlt);
 $rowt = mysql_fetch_array($result);
 
+echo "<div class='wrapContent'>";
+
 echo "<div class='wrapThreadTitle'><div class='ThreadName'>".$rowt['Name']."</div><div class='ThreadDate'>".$rowt['Erstellungsdatum']."</div>
     <div class='ThreadDescr'>".$rowt['Beschreibung']."</div></div>";
 
@@ -47,7 +49,7 @@ while ($row = mysql_fetch_object($result)) {
             <?php
             if (isset($_SESSION['username'])) {
                 echo "<br>
-                    <input name=\"Title\" type=\"text\" maxlength=\"40\" placeholder=\"Der Titel\">
+                    <input name=\"Title\" type=\"text\" maxlength=\"100\" placeholder=\"Der Titel\">
                     <br>
                     <textarea name=\"Content\" maxlength=\"500\" placeholder=\"Der Content\"></textarea>
                     <input type=\"hidden\" name=\"mode\" value=\"post\">
@@ -57,6 +59,7 @@ while ($row = mysql_fetch_object($result)) {
             }
             ?>
         </form>
+    </div>
     </body>
 
 </html>

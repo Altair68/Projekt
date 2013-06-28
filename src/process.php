@@ -1,6 +1,7 @@
 <?php
     session_start();
     include 'connection.php';
+    $refresh = 'javascript:history.back()';
     if ($_POST["mode"] == "post") {
         $id_get = $_POST["threadid"];
         $title = $_POST["Title"];
@@ -34,11 +35,56 @@
     } elseif ($_POST["mode"] == "logout") {
         session_destroy();
         echo "Sie sind jetzt ausgeloggt";
+    } elseif ($_POST["mode"] == "register") {
+        $username = trim($_POST["username"]);
+        $email = trim($_POST["mail"]);
+        $pw = $_POST["pw"];
+        $pw_conf = $_POST["pw_conf"];
+        $refresh = 'register.php';
+
+        if ($pw != $pw_conf) {
+            echo "<div class='error'>Die Passw&ouml;rter stimmen nicht &uuml;berein</div>";
+        } else {
+            $sql = "SELECT * FROM Users WHERE Name LIKE '$username'";
+            $result = mysql_query($sql);
+            if (mysql_num_rows($result) != 0) {
+                echo "<div class='error'>Der User existiert bereits</div>";
+            } else {
+                $sql = "SELECT * FROM Users WHERE Email LIKE '$email'";
+                $result = mysql_query($sql);
+                if (mysql_num_rows($result) != 0) {
+                    echo "<div class='error'>Die Mail-Adresse wird bereits benutzt</div>";
+                } else {
+                    $refresh = 'index.php';
+                    $pw_enc = md5($pw);
+                    $sql = "INSERT INTO Users (Name,Passwort,Email) VALUES ('$username','$pw_enc','$email');";
+                    mysql_query($sql);
+                }
+            }
+        }
+    } elseif ($_POST["mode"] == "userEdit") {
+        $email = $_POST['mail'];
+        $pw = $_POST['pw'];
+        $pw_conf = $_POST['pw_conf'];
+        $userid = $_SESSION['userid'];
+
+        if ($pw != '') {
+            if ($pw != $pw_conf) {
+                echo "<div class='error'>Die Passw&ouml;rter stimmen nicht &uuml;berein</div>";
+            } else {
+                $pw_enc = md5($pw);
+                $sql = "UPDATE Users SET Passwort = '$pw_enc', Email = '$email' WHERE ID = $userid";
+            }
+        } else {
+            $sql = "UPDATE Users SET Email = '$email' WHERE ID = $userid";
+        }
+        mysql_query($sql);
+        mysql_error();
     }
 ?>
 <html>
 <head>
-    <meta http-equiv="refresh" content="1; URL='javascript:history.back()'">
+    <meta http-equiv="refresh" content="1; URL='<?php echo $refresh?>">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>

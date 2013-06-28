@@ -26,7 +26,7 @@
                 echo "<br>
                     <input name=\"Title\" type=\"text\" maxlength=\"40\" placeholder=\"Der Titel\">
                     <br>
-                    <textarea name=\"Beschreibung\" maxlength=\"500\" placeholder=\"Die Beschreibung\"></textarea>
+                    <textarea name=\"Beschreibung\" maxlength=\"80\" placeholder=\"Die Beschreibung\"></textarea>
                     <input type=\"hidden\" name=\"mode\" value=\"thread\">
                     <br>
                     <input name=\"Submit\" type=\"submit\">";
