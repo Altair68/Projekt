@@ -15,7 +15,7 @@ function setColors(color) {
         $('.greyOrangeGreyFlowBackground').css("color", "white");
         $('.topBottFlowBackground').css("color", "white");
         $('.leftRightFlowBackground').css("color", "white");
-        $('a:link').css("color", "white");
+        $('.a:link').css("color", "white");
         $('#color').css("color", "white");
     } else {
         $('.greyOrangeGreyFlowBackground').css("color", "black");
@@ -36,8 +36,14 @@ function setBackground() {
     $(".postUser").addClass("topBottFlowBackground");
     $(".error").addClass("greyOrangeGreyFlowBackground");
     $(".wrapThreadTitle").addClass("leftRightFlowBackground");
+    $("article").addClass("leftRightFlowBackground");
 }
 
+/**
+ * Generiert aus einer Farbe als Hexzahl die Summe der dezimalen RGB Werte.
+ * @param color Die Farbe.
+ * @returns {number} dezimale RGB Summe.
+ */
 function colorToNumber(color) {
     r = color.substr(1, 2);
     g = color.substr(3, 2);

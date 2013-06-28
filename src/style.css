@@ -2,6 +2,33 @@ body {
     background: #CECECE
 }
 
+form textarea {
+    max-width: 100%;
+}
+
+a:link {
+    color: #000000;
+    }      /* unvisited link */
+a:visited {
+    color: #878787;
+    }  /* visited link */
+a:hover {
+    color: #ffc704;
+    }  /* mouse over link */
+
+a:active {
+    color: #ffc704;
+
+}  /* selected link */
+
+article {
+    padding: 5px;
+    border: solid 3px black;
+    -moz-box-shadow: 15px 15px 10px #444;
+    -webkit-box-shadow: 15px 15px 10px #444;
+    box-shadow: 15px 15px 10px #444;
+}
+
 .Post {
     overflow: hidden;
     background: grey;
@@ -22,7 +49,6 @@ body {
     font-size: 18px;
     font-weight: bold;
 }
-
 .PostDate {
     text-align: right;
 }
@@ -30,6 +56,7 @@ body {
 .wrapPostUserContent {
     overflow: hidden;
 }
+
 .PostUser {
     background: lightgray;
     float: left;
@@ -65,29 +92,18 @@ body {
 .ThreadDate {
     text-align: right;
 }
-
 .ThreadDescr {
     clear: both;
     font-style: italic;
 }
 
-a:link {
-    color: #000000;
-}      /* unvisited link */
-a:visited {
-    color: #878787;
-}  /* visited link */
-a:hover {
-    color: #ffc704;
-}  /* mouse over link */
-a:active {
-    color: #ffc704;
-}  /* selected link */
-
 .error {
     padding: 5px;
     border: solid 3px black;
      text-align: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
     -moz-box-shadow: 10px 10px 5px #444;
     -webkit-box-shadow:  10px 5px #444;
     box-shadow: 10px 10px 10px 5px #444;
@@ -120,6 +136,12 @@ a:active {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+
+.wrapThreadOverview {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .colorChooser {
