@@ -53,6 +53,7 @@ function login()
         $_SESSION['userid'] = $data['ID'];
         $_SESSION['username'] = $data['Name'];
         $_SESSION['mail'] = $data['Email'];
+        $_SESSION['admin'] = $data['Admin'];
     } else {
         echo "Sie haben einen falschen User oder ein falsches Passwort eingegeben";
     }

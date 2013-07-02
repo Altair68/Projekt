@@ -31,13 +31,17 @@ while ($row = mysql_fetch_object($result)) {
                     <a href='showpost.php?p=$row->Postid'>#$row->Postid</a> $row->Title
                   </div>
                   <div class='PostDate'>
-                    $row->Date
+                    $row->Date";
+    if ($_SESSION['admin'] == 1 or $row->Userid == $_SESSION['userid']) {
+        echo "
                     <form class='deleteForm' action='process.php' method='post'>
                         <input type='submit' value=''>
                         <input type='hidden' name='id' value='$row->Postid'>
                         <input type='hidden' name='mode' value='deletePost'>
-                    </form>
-                  </div>
+                    </form>";
+    }
+
+    echo "        </div>
               </div>
               <div class='wrapPostUserContent'>
                   <div class='PostUser'>
