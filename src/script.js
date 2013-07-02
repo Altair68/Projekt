@@ -2,7 +2,9 @@
 $(document).ready(function() {
     setBackground();
     $('#demo').hide();
-    setColors($.cookie("color1"));
+    if (typeof $.cookie("color1") != "undefined") {
+        setColors($.cookie("color1"));
+    }
     $('#picker').farbtastic(function callback(color) {
         $.cookie("color1", color);
         $('#color').val(color);

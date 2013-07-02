@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="lib/jquery-ui-1.10.3/jquery-1.9.1.js"></script>
-    <script src="lib/jquery-ui-1.10.3/jquery-ui.js"></script>
+    <script src="lib/jquery-ui-1.10.3/ui/jquery-ui.js"></script>
     <script src="lib/jquery-cookie/jquery-cookie.js"></script>
     <script src="lib/farbtastic/farbtastic.js"></script>
     <script src="script.js"></script>

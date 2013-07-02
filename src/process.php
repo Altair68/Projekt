@@ -80,6 +80,11 @@
         }
         mysql_query($sql);
         mysql_error();
+    } elseif ($_POST["mode"] == "deletePost") {
+        $id = $_POST['id'];
+        $statement = "DELETE FROM Posts WHERE ID = $id";
+        mysql_query($statement);
+        echo mysql_error();
     }
 ?>
 <html>

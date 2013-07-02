@@ -144,6 +144,20 @@ article {
     margin-right: auto;
 }
 
+.deleteForm {
+    float: right;
+}
+
+.deleteForm input {
+    background: url("cross.png");
+    background-size: 100%;
+    width: 12px;
+    height: 12px;
+    border: none;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+
 .colorChooser {
     float: right;
     overflow: hidden;
