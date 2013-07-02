@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'connection.php';
+include 'header.php';
 $refresh = 'javascript:history.back()';
 
 if ($_POST["mode"] == "post") {
@@ -48,7 +49,7 @@ function login()
     $result = mysql_query($sql);
     echo mysql_error();
     if (mysql_num_rows($result) > 0) {
-        echo "Sie werden eingeloggt";
+        echo "<div class='error'>Sie werden eingeloggt</div>";
         $data = mysql_fetch_array($result);
         $_SESSION['userid'] = $data['ID'];
         $_SESSION['username'] = $data['Name'];
@@ -62,7 +63,7 @@ function login()
 function logout()
 {
     session_destroy();
-    echo "Sie sind jetzt ausgeloggt";
+    echo "<div class='error'>Sie sind jetzt ausgeloggt</div>";
 }
 
 /**
