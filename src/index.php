@@ -27,12 +27,12 @@
                 <?php
                 if (isset($_SESSION['username'])) {
                     echo "<br>
-                        <input name=\"Title\" type=\"text\" maxlength=\"40\" placeholder=\"Der Titel\">
+                        <input name='Title' type='text' maxlength='40' placeholder='Der Titel'>
                         <br>
-                        <textarea name=\"Beschreibung\" maxlength=\"80\" placeholder=\"Die Beschreibung\"></textarea>
-                        <input type=\"hidden\" name=\"mode\" value=\"thread\">
+                        <textarea name='Beschreibung' maxlength='80' placeholder='Die Beschreibung'></textarea>
+                        <input type='hidden' name='mode' value='thread'>
                         <br>
-                        <input name=\"Submit\" type=\"submit\">";
+                        <input name='Submit' type='submit'>";
                 }
                 ?>
 
