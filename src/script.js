@@ -35,7 +35,7 @@ function setColors(color) {
 function setBackground() {
     $(".userWrap label").addClass("greyOrangeGreyFlowBackground");
     $(".wrapTitleDate").addClass("leftRightFlowBackground");
-    $(".postUser").addClass("topBottFlowBackground");
+    $(".PostUser").addClass("topBottFlowBackground");
     $(".error").addClass("greyOrangeGreyFlowBackground");
     $(".wrapThreadTitle").addClass("leftRightFlowBackground");
     $("article").addClass("leftRightFlowBackground");

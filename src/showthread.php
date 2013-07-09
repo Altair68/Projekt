@@ -59,7 +59,7 @@ while ($row = mysql_fetch_object($result)) {
                 echo "<br>
                     <input name='Title' type='text' maxlength='100' placeholder='Der Titel'>
                     <br>
-                    <textarea name='Content' maxlength='500' placeholder='Der Content'></textarea>
+                    <textarea name='Content' maxlength='2000' placeholder='Der Content'></textarea>
                     <input type='hidden' name='mode' value='post'>
                     <input type='hidden' name='threadid' value='$id_get?>'>
                     <br>
