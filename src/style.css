@@ -23,6 +23,7 @@ a:active {
 
 article {
     padding: 5px;
+    overflow: auto;
     -moz-box-shadow: 15px 15px 10px #444;
     -webkit-box-shadow: 15px 15px 10px #444;
     box-shadow: 15px 15px 10px #444;
@@ -49,6 +50,7 @@ article {
 }
 .PostDate {
     text-align: right;
+    font-style: italic;
 }
 
 .wrapPostUserContent {
@@ -86,6 +88,8 @@ article {
 
 .ThreadDate {
     text-align: right;
+    font-style: italic;
+    float: right;
 }
 .ThreadDescr {
     clear: both;

@@ -16,7 +16,24 @@
                 $result = mysql_query($sql);
                 echo mysql_error();
                 while ($row = mysql_fetch_object($result)) {
-                    echo "<article><a href='showthread.php?t=$row->ID'><b>$row->ID</b>|$row->Name|$row->Beschreibung</a></article>";
+                    $dateSQL = "SELECT max(Date) AS Date FROM Posts WHERE Posts.Thread = $row->ID";
+                    $dateResult = mysql_query($dateSQL);
+                    $dateRow = mysql_fetch_object($dateResult);
+                    echo mysql_error();
+                    if ($dateRow->Date == null) {
+                        echo "
+                        <article>
+                            <a href='showthread.php?t=$row->ID'><b>$row->ID</b>|$row->Name|$row->Beschreibung|asdf</a>
+                            <div class='ThreadDate'>Erstellt am: $row->Erstellungsdatum<br>Letzte &Aumlnderung: $row->Erstellungsdatum</div>
+                        </article>";
+                    } else {
+                        echo "
+                        <article>
+                            <a href='showthread.php?t=$row->ID'><b>$row->ID</b>|$row->Name|$row->Beschreibung|asdf</a>
+                            <div class='ThreadDate'>Erstellt am: $row->Erstellungsdatum<br>Letzte &Aumlnderung: $dateRow->Date</div>
+                        </article>";
+
+                    }
                     echo "<br>";
                 }
                 include 'footer.html';
