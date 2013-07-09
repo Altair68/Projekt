@@ -10,6 +10,11 @@ $(document).ready(function() {
         $('#color').val(color);
         setColors(color);
     });
+
+    if(checkBrowserName('MSIE')){
+        alert('Diese Seite kann auf Grund technischer Schwierigkeiten mit dem Internet Explorer nicht richtig angezeigt werden.' +
+            ' Wenn du was gutes benutzen willst. BENUTZ WAS ANDERES!!');
+    }
 });
 
 function setColors(color) {
@@ -51,4 +56,12 @@ function colorToNumber(color) {
     g = color.substr(3, 2);
     b = color.substr(5, 6);
     return parseInt(r, 16) + parseInt(g, 16) + parseInt(b, 16);
+}
+
+function checkBrowserName(name){
+    var agent = navigator.userAgent.toLowerCase();
+    if (agent.indexOf(name.toLowerCase())>-1) {
+        return true;
+    }
+    return false;
 }

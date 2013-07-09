@@ -22,6 +22,7 @@ if ($_POST["mode"] == "post") {
 
 function post()
 {
+    echo "<div class='error'>Post wird erstellt</div>";
     $id_get = htmlspecialchars($_POST["threadid"]);
     $title = htmlspecialchars($_POST["Title"]);
     $content = htmlspecialchars($_POST["Content"]);
@@ -137,6 +138,7 @@ function userEdit()
 
 function deletePost()
 {
+    echo "<div class='error'>Post wird gel&oumlscht</div>";
     $id = $_POST['id'];
     $statement = "DELETE FROM Posts WHERE ID = $id";
     mysql_query($statement);

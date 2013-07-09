@@ -17,7 +17,7 @@ echo "<div class='wrapThreadTitle'><div class='ThreadName'>".$rowt['Name']."</di
     <div class='ThreadDescr'>".$rowt['Beschreibung']."</div></div>";
 
 
-$sql = "SELECT Posts.ID AS Postid, Posts.Title, Users.Name, Users.ID as Userid, Posts.Content, Posts.Date FROM Posts, Users WHERE Thread = $id_get AND Users.ID = Posts.User";
+$sql = "SELECT Posts.ID AS Postid, Posts.Title, Users.Name, Users.ID as Userid, Posts.Content, Posts.Date FROM Posts, Users WHERE Thread = $id_get AND Users.ID = Posts.User ORDER BY Posts.Date";
 $result = mysql_query($sql);
 echo mysql_error();
 while ($row = mysql_fetch_object($result)) {
@@ -37,12 +37,23 @@ while ($row = mysql_fetch_object($result)) {
                         <input type='hidden' name='mode' value='deletePost'>
                     </form>";
     }
+    $sqlPostCount = "SELECT count(p.ID) as Count FROM Posts p WHERE p.User = $row->Userid";
+    $resultPostCount = mysql_query($sqlPostCount);
+    $rowPostCount = mysql_fetch_object($resultPostCount);
+    $postCount = $rowPostCount->Count;
+
+    $sqlThreadCount = "SELECT count(t.ID) as Count FROM Threads t WHERE t.User = $row->Userid";
+    $resultThreadCount = mysql_query($sqlThreadCount);
+    $rowThreadCount = mysql_fetch_object($resultThreadCount);
+    $threadCount = $rowThreadCount->Count;
 
     echo "        </div>
               </div>
               <div class='wrapPostUserContent'>
                   <div class='PostUser'>
-                    <a href='showuser.php?u=$row->Userid'>$row->Name</a>
+                    <a href='showuser.php?u=$row->Userid'>$row->Name</a> <br>
+                    <b>Posts</b>: $postCount<br>
+                    <b>Threads:</b> $threadCount
                   </div>
                   <div class='PostContent'>
                     $row->Content
