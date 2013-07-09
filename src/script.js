@@ -17,7 +17,7 @@ function setColors(color) {
         $('.greyOrangeGreyFlowBackground').css("color", "white");
         $('.topBottFlowBackground').css("color", "white");
         $('.leftRightFlowBackground').css("color", "white");
-        $('.a:link').css("color", "white");
+        $('a:link').css("color", "white");
         $('#color').css("color", "white");
     } else {
         $('.greyOrangeGreyFlowBackground').css("color", "black");
