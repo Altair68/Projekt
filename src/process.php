@@ -42,10 +42,13 @@ function replaceUmlaute($stringToEdit)
 
 function thread()
 {
+    echo "<div class='error'>Thread wird erstellt</div>";
     $title = htmlspecialchars($_POST["Title"]);
-    $content = htmlspecialchars($_POST["Content"]);
+    $content = htmlspecialchars($_POST["Beschreibung"]);
+    $editedContent = replaceUmlaute($content);
+    $editedTitle = replaceUmlaute($title);
     $user = $_SESSION["userid"];
-    $insert = "INSERT INTO Threads (Name, Beschreibung, Erstellungsdatum, User) VALUES ('$title', '$content', CURRENT_TIMESTAMP, '$user')";
+    $insert = "INSERT INTO Threads (Name, Beschreibung, Erstellungsdatum, User) VALUES ('$editedTitle', '$editedContent', CURRENT_TIMESTAMP, '$user')";
     $query = mysql_query($insert);
 }
 
@@ -64,7 +67,7 @@ function login()
         $_SESSION['mail'] = $data['Email'];
         $_SESSION['admin'] = $data['Admin'];
     } else {
-        echo "Sie haben einen falschen User oder ein falsches Passwort eingegeben";
+        echo "<div class='error'>Sie haben einen falschen User oder ein falsches Passwort eingegeben</div>";
     }
 }
 

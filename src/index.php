@@ -23,13 +23,13 @@
                     if ($dateRow->Date == null) {
                         echo "
                         <article>
-                            <a href='showthread.php?t=$row->ID'><b>$row->ID</b>|$row->Name|$row->Beschreibung|asdf</a>
+                            <div class='ThreadInfo'><a href='showthread.php?t=$row->ID'><b>$row->ID $row->Name</b></a><br>$row->Beschreibung</div>
                             <div class='ThreadDate'>Erstellt am: $row->Erstellungsdatum<br>Letzte &Aumlnderung: $row->Erstellungsdatum</div>
                         </article>";
                     } else {
                         echo "
                         <article>
-                            <a href='showthread.php?t=$row->ID'><b>$row->ID</b>|$row->Name|$row->Beschreibung|asdf</a>
+                            <div class='ThreadInfo'><a href='showthread.php?t=$row->ID'><b>$row->ID $row->Name</b></a><br>$row->Beschreibung</div>
                             <div class='ThreadDate'>Erstellt am: $row->Erstellungsdatum<br>Letzte &Aumlnderung: $dateRow->Date</div>
                         </article>";
 
@@ -39,17 +39,17 @@
                 include 'footer.html';
             ?>
 
-            <form action="process.php" method="post">
+            <form class="createForm" action="process.php" method="post">
 
                 <?php
                 if (isset($_SESSION['username'])) {
                     echo "<br>
-                        <input name='Title' type='text' maxlength='40' placeholder='Der Titel'>
+                        <input name='Title' type='text' maxlength='60' placeholder='Der Titel'>
                         <br>
-                        <textarea name='Beschreibung' maxlength='80' placeholder='Die Beschreibung'></textarea>
+                        <textarea name='Beschreibung' maxlength='200' placeholder='Die Beschreibung'></textarea>
                         <input type='hidden' name='mode' value='thread'>
                         <br>
-                        <input name='Submit' type='submit'>";
+                        <input name='Submit' type='submit' value='Abschicken'>";
                 }
                 ?>
 

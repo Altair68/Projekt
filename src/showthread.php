@@ -52,7 +52,7 @@ while ($row = mysql_fetch_object($result)) {
           </div>";
 }
 ?>
-        <form action="process.php" method="post">
+        <form class="createForm" action="process.php" method="post">
 
             <?php
             if (isset($_SESSION['username'])) {

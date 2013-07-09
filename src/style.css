@@ -2,20 +2,16 @@ body {
     background: #CECECE
 }
 
-form textarea {
-    max-width: 100%;
-}
-
 a:link {
     color: #000000;
     }      /* unvisited link */
+
 a:visited {
     color: #878787;
     }  /* visited link */
 a:hover {
     color: #ffc704;
     }  /* mouse over link */
-
 a:active {
     color: #ffc704;
 
@@ -48,11 +44,11 @@ article {
     font-size: 18px;
     font-weight: bold;
 }
+
 .PostDate {
     text-align: right;
     font-style: italic;
 }
-
 .wrapPostUserContent {
     overflow: hidden;
 }
@@ -86,16 +82,23 @@ article {
     font-weight: bold;
 }
 
+.ThreadInfo {
+    float: left;
+    max-width: 50%;
+    word-break: break-all;
+}
+
 .ThreadDate {
     text-align: right;
     font-style: italic;
     float: right;
 }
+
 .ThreadDescr {
     clear: both;
+    word-break: break-all;
     font-style: italic;
 }
-
 .error {
     padding: 5px;
      text-align: center;
@@ -145,6 +148,15 @@ article {
     float: right;
 }
 
+.createForm textarea {
+    width: 100%;
+    min-height: 100px;
+}
+
+.createForm input {
+    width: 100%;
+}
+
 .deleteForm input {
     background: url("cross.png");
     background-size: 100%;
@@ -154,7 +166,6 @@ article {
     margin-left: 3px;
     margin-top: 3px;
 }
-
 .colorChooser {
     float: right;
     overflow: hidden;
@@ -163,8 +174,9 @@ article {
     transition: width 2s, height 1s;
     position: absolute;
     overflow: hidden;
-    -webkit-transition: width 2s, height 1s; /* Safari */
-}
+-webkit-transition: width 2s, height 1s; /* Safari */
+    }
+
 
 .colorChooser:hover {
     width: 250px;
@@ -175,34 +187,34 @@ article {
     opacity: 0;
     transition: opacity 2s;
 }
-
 .colorChooser img {
     opacity: 1;
     transition: opacity 2s;
-    -webkit-transition: opacity 2s; /* Safari */
-}
+-webkit-transition: opacity 2s; /* Safari */
+    }
+
 
 .colorChooser:hover form {
     opacity: 1;
     transition: opacity 2s ease-in;
 }
-
 .colorChooser form {
     opacity: 0;
     transition: opacity 2s ease-out;
-    -webkit-transition: opacity 2s ease-out; /* Safari */
-}
+-webkit-transition: opacity 2s ease-out; /* Safari */
+    }
 
 .greyOrangeGreyFlowBackground {
-    background: #808080; /* Old browsers */
-    background: -moz-linear-gradient(left, #808080 0%, #ff7a00 51%, #808080 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#808080), color-stop(51%,#ff7a00), color-stop(100%,#808080)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left, #808080 0%,#ff7a00 51%,#808080 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left, #808080 0%,#ff7a00 51%,#808080 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left, #808080 0%,#ff7a00 51%,#808080 100%); /* IE10+ */
-    background: linear-gradient(to right, #808080 0%,#ff7a00 51%,#808080 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#808080', endColorstr='#808080',GradientType=1 ); /* IE6-9 */
-}
+background: #808080; /* Old browsers */
+background: -moz-linear-gradient(left, #808080 0%, #ff7a00 51%, #808080 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#808080), color-stop(51%,#ff7a00), color-stop(100%,#808080)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left, #808080 0%,#ff7a00 51%,#808080 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left, #808080 0%,#ff7a00 51%,#808080 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left, #808080 0%,#ff7a00 51%,#808080 100%); /* IE10+ */
+background: linear-gradient(to right, #808080 0%,#ff7a00 51%,#808080 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#808080', endColorstr='#808080',GradientType=1 ); /* IE6-9 */
+    }
+
 
 .topBottFlowBackground {
     background: #ff7a00; /* Old browsers */
