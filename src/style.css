@@ -23,7 +23,6 @@ a:active {
 
 article {
     padding: 5px;
-    border: solid 3px black;
     -moz-box-shadow: 15px 15px 10px #444;
     -webkit-box-shadow: 15px 15px 10px #444;
     box-shadow: 15px 15px 10px #444;
@@ -33,7 +32,6 @@ article {
     overflow: hidden;
     background: grey;
     margin: 0 0 15 0;
-    border: solid 1px black;
     -moz-box-shadow: 10px 10px 5px #444;
     -webkit-box-shadow: 10px 10px 5px #444;
     box-shadow: 10px 10px 5px #444;
@@ -62,7 +60,6 @@ article {
     float: left;
     padding: 0 10;
     margin-right: 5;
-    border-right : solid 1px black;
     width: 75px;
     height: 200px;
 }
@@ -70,14 +67,12 @@ article {
 .PostContent {
     word-wrap: break-word;
     padding: 5 5;
-    border-top: solid 1px black;
     color: lightgray;
 }
 
 .wrapThreadTitle {
     margin-bottom: 20px;
     padding: 5px;
-    border: solid 3px black;
     -moz-box-shadow: 15px 15px 10px #444;
     -webkit-box-shadow: 15px 15px 10px #444;
     box-shadow: 15px 15px 10px #444;
@@ -99,7 +94,6 @@ article {
 
 .error {
     padding: 5px;
-    border: solid 3px black;
      text-align: center;
     width: 50%;
     margin-left: auto;
@@ -110,7 +104,6 @@ article {
 }
 
 .userWrap {
-   border: solid 1px black;
    text-align:left;
    margin-left: auto;
     margin-right: auto;
@@ -125,7 +118,7 @@ article {
 .userWrap label {
      width: 50%;
      text-align: center;
-    display:inline-block;
+     display:inline-block;
 }
 
 .userWrap input {

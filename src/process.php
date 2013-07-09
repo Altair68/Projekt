@@ -25,10 +25,18 @@ function post()
     $title = htmlspecialchars($_POST["Title"]);
     $content = htmlspecialchars($_POST["Content"]);
     $user = $_SESSION["userid"];
-    echo $user;
-    $insert = "INSERT INTO Posts (Title, Thread, Content, User, Date) VALUES ('$title', '$id_get', '$content', '$user', CURRENT_TIMESTAMP)";
+    $editedContent = replaceUmlaute($content);
+    $editedTitle = replaceUmlaute($title);
+    $insert = "INSERT INTO Posts (Title, Thread, Content, User, Date) VALUES ('$editedTitle', '$id_get', '$editedContent', '$user', CURRENT_TIMESTAMP)";
     $query = mysql_query($insert);
     echo mysql_error();
+}
+
+function replaceUmlaute($stringToEdit)
+{
+    $search = array("\n", "ä", "Ä", "ö", "Ö", "ü", "Ü", "<hr>");
+    $replace = array("<br>", "&auml;", "&Auml;", "&ouml;", "&Ouml;", "&uuml;", "&Uuml;", "");
+    return str_replace($search, $replace, $stringToEdit);
 }
 
 function thread()
