@@ -5,6 +5,7 @@
 session_start();
 include 'connection.php';
 include 'header.php';
+include 'bbcode.php';
 $id_get = $_GET["t"];
 
 $sqlt = "SELECT * FROM Threads WHERE ID = $id_get";
@@ -17,7 +18,7 @@ echo "<div class='wrapThreadTitle'><div class='ThreadName'>".$rowt['Name']."</di
     <div class='ThreadDescr'>".$rowt['Beschreibung']."</div></div>";
 
 
-$sql = "SELECT Posts.ID AS Postid, Posts.Title, Users.Name, Users.ID as Userid, Posts.Content, Posts.Date FROM Posts, Users WHERE Thread = $id_get AND Users.ID = Posts.User ORDER BY Posts.Date";
+$sql = "SELECT Posts.ID AS Postid, Posts.Title, Users.Name, Users.ID as Userid, Posts.Content as Content, Posts.Date FROM Posts, Users WHERE Thread = $id_get AND Users.ID = Posts.User ORDER BY Posts.Date";
 $result = mysql_query($sql);
 echo mysql_error();
 while ($row = mysql_fetch_object($result)) {
@@ -28,14 +29,15 @@ while ($row = mysql_fetch_object($result)) {
                     <a href='showpost.php?p=$row->Postid'>#$row->Postid</a> $row->Title
                   </div>
                   <div class='PostDate'>
-                    $row->Date";
+                    $row->Date<br>
+                    <input type='button' class='quoteButton' content='$row->Content' value='Quote'>";
     if ($_SESSION['admin'] == 1 or $row->Userid == $_SESSION['userid']) {
         echo "
-                    <form class='deleteForm' action='process.php' method='post'>
-                        <input type='submit' value=''>
-                        <input type='hidden' name='id' value='$row->Postid'>
-                        <input type='hidden' name='mode' value='deletePost'>
-                    </form>";
+                <form class='deleteForm' action='process.php' method='post'>
+                    <input type='submit' value=''>
+                    <input type='hidden' name='id' value='$row->Postid'>
+                    <input type='hidden' name='mode' value='deletePost'>
+                </form>";
     }
     $sqlPostCount = "SELECT count(p.ID) as Count FROM Posts p WHERE p.User = $row->Userid";
     $resultPostCount = mysql_query($sqlPostCount);
@@ -47,6 +49,7 @@ while ($row = mysql_fetch_object($result)) {
     $rowThreadCount = mysql_fetch_object($resultThreadCount);
     $threadCount = $rowThreadCount->Count;
 
+    $bbcontent = parse_bbcode($row->Content);
     echo "        </div>
               </div>
               <div class='wrapPostUserContent'>
@@ -56,7 +59,7 @@ while ($row = mysql_fetch_object($result)) {
                     <b>Threads:</b> $threadCount
                   </div>
                   <div class='PostContent'>
-                    $row->Content
+                    $bbcontent
                   </div>
               </div>
             </div>
@@ -68,9 +71,9 @@ while ($row = mysql_fetch_object($result)) {
             <?php
             if (isset($_SESSION['username'])) {
                 echo "<br>
-                    <input name='Title' type='text' maxlength='100' placeholder='Der Titel'>
+                    <input name='Title' id='title' type='text' maxlength='100' placeholder='Der Titel'>
                     <br>
-                    <textarea name='Content' maxlength='2000' placeholder='Der Content'></textarea>
+                    <textarea name='Content' id='editor' class='editor' maxlength='2000' placeholder='Der Content'></textarea>
                     <input type='hidden' name='mode' value='post'>
                     <input type='hidden' name='threadid' value='$id_get?>'>
                     <br>

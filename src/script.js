@@ -10,6 +10,11 @@ $(document).ready(function() {
         $('#color').val(color);
         setColors(color);
     });
+    $('.editor').jqte();
+    $('.quoteButton').click(function(event) {
+       var content = $('#editor');
+        content.val(content.val() + "<div class='quote'>" + event.target.getAttribute('content') + "</div>");
+    });
 
     if(checkBrowserName('MSIE')){
         alert('Diese Seite kann auf Grund technischer Schwierigkeiten mit dem Internet Explorer nicht richtig angezeigt werden.' +

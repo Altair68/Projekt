@@ -48,6 +48,7 @@ article {
 .PostDate {
     text-align: right;
     font-style: italic;
+    float: right;
 }
 .wrapPostUserContent {
     overflow: hidden;
@@ -166,6 +167,11 @@ article {
     margin-left: 3px;
     margin-top: 3px;
 }
+
+.quoteButton {
+    float: left;
+}
+
 .colorChooser {
     float: right;
     overflow: hidden;
@@ -174,8 +180,8 @@ article {
     transition: width 2s, height 1s;
     position: absolute;
     overflow: hidden;
--webkit-transition: width 2s, height 1s; /* Safari */
-    }
+    -webkit-transition: width 2s, height 1s; /* Safari */
+}
 
 
 .colorChooser:hover {
@@ -201,8 +207,31 @@ article {
 .colorChooser form {
     opacity: 0;
     transition: opacity 2s ease-out;
--webkit-transition: opacity 2s ease-out; /* Safari */
-    }
+    -webkit-transition: opacity 2s ease-out; /* Safari */
+}
+
+.quote {
+    background: rgb(83, 83, 83);
+    -moz-box-shadow: inset 4px 4px 4px #444;
+    -webkit-box-shadow: inset 4px 4px 4px #444;
+    box-shadow: inset 4px 4px 4px #444;
+    margin-left: 120px;
+    padding:4px 7px;
+}
+
+.header {
+    margin: 0 auto;
+}
+
+.caption {
+    font-weight: bold;
+    font-size:200%
+}
+
+.subCaption {
+    padding: 0 30px;
+    font-style: italic;
+}
 
 .greyOrangeGreyFlowBackground {
 background: #808080; /* Old browsers */
